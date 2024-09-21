@@ -1,0 +1,6 @@
+[theme]
+primaryColor = '#6b8e23'  # Olive green, representing nature and agriculture
+backgroundColor = '#f5f5dc'  # Beige, a light neutral color reminiscent of soil
+secondaryBackgroundColor = '#dcedc8'  # Light green, representing freshness and growth
+textColor = '#333333'  # Darker gray/black for good readability
+font = "sans serif"
