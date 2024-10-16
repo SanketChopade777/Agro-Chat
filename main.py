@@ -31,10 +31,7 @@ if selected == "🏠Home":
 
 # Function to translate role between Gemini-Pro and Streamlit terminology
 def translate_role_for_streamlit(user_role):
-    if user_role == 'model':
-        return "assistant"
-    else:
-        return user_role
+    return "assistant" if user_role == 'model' else user_role
 
 # If "AgroChat" is selected, load the chat interface
 if selected == "AgroChat":
@@ -46,12 +43,14 @@ if selected == "AgroChat":
 
     # Streamlit page title
     st.title("🤖 AgroChat")
+    st.markdown("<h5>Ask your questions related to agriculture!</h5>", unsafe_allow_html=True)
 
-    # Display the chat history
+    # Display the chat history in a more structured way
     if "chat_session" in st.session_state:
-        for message in st.session_state.chat_session.history:
+        chat_history = st.session_state.chat_session.history
+        for message in chat_history:
             with st.chat_message(translate_role_for_streamlit(message.role)):
-                st.markdown(message.parts[0].text)
+                st.markdown(f"<div style='padding: 10px; border-radius: 5px; margin: 5px 0; background-color: #f1f1f1;'>{message.parts[0].text}</div>", unsafe_allow_html=True)
 
     # Input field for user's message
     user_prompt = st.chat_input("Ask AgroChat....")
@@ -61,6 +60,6 @@ if selected == "AgroChat":
 
         gemini_response = st.session_state.chat_session.send_message(user_prompt)
 
-        # Display Gemini-Pro response
+        # Display Gemini-Pro response with better styling
         with st.chat_message("assistant"):
-            st.markdown(gemini_response.text)
+            st.markdown(f"<div style='padding: 10px; border-radius: 5px; margin: 5px 0; background-color: #d4edda;'>{gemini_response.text}</div>", unsafe_allow_html=True)
