@@ -1,7 +1,7 @@
 google-generativeai==0.3.0
-google-ai-generativelanguage==0.2.0
-pillow
-streamlit
-streamlit-option-menu
-protobuf
-transformers
+googletrans==4.0.0-rc1
+pillow==9.0.0
+streamlit==1.25.0
+streamlit-option-menu==0.3.2
+protobuf==3.20.3
+transformers==4.28.1
