@@ -1,4 +1,4 @@
-google-generativeai
+google-generativeai==0.3.0  # Replace with a compatible version for your project
 pillow
 streamlit
 streamlit-option-menu
